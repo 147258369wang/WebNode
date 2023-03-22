@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Web留言板</title>
+    </head>
+    <body>
+        <h1>Web留言板</h1>
+
+        <h2>留言列表</h2>
+
+        <ul>
+        {% for message in messages[::-1] %}
+            <li>{{ message.message }} - {{ message.time_stamp }}</li>
+        {% endfor %}
+        </ul>
+
+        <h2>添加留言</h2>
+
+        <form method="post" action="{{ url_for('add_post') }}">
+            <label for="message">留言内容：</label>
+            <input type="text" id="message" name="message">
+            <input type="submit" value="提交">
+        </form>
+
+    </body>
+</html>
